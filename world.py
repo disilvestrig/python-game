@@ -1,4 +1,21 @@
 import random
+class Entity:
+    def __init__(self,x,y,graphic):
+        self.x = x
+        self.y = y
+        self.graphic = graphic
+    
+    def moves(self,direction,walls):
+        if direction.lower() == "w" and [x,y-1] not in walls :          
+            y -= 1
+        elif direction.lower() == "s" and [x,y+1] not in walls :            
+            y += 1
+        elif direction.lower() == "a" and [x-1,y] not in walls :            
+            x -= 1
+        elsif direction.lower() == "w" and [x,y-1] not in walls :           
+            x += 1
+
+
 class World:
   def __init__(self, w, h):
     self.w = w
@@ -9,6 +26,9 @@ class World:
 
   def add_entities(self, entities,obstacles):
     self.entities += entities
+  
+  def getwallatcoords(self):
+    return self.wallscoords
   
 
   def makewall(self,exa,exb):
@@ -41,9 +61,9 @@ class World:
   def draw(self):
     for y in range(self.h):
       for x in range(self.w):
-#        for e in self.entities:
-#          if e.x == x and e.y == y:
-#            print("[{}]".format(e.graphic), end = "")
+        for e in self.entities:
+          if e.x == x and e.y == y:
+            print("[{}]".format(e.graphic), end = "")
             if [x,y] in self.wallscoords:
               print("[=]",end = "")
               
@@ -54,16 +74,17 @@ class World:
 
 
 
-
-#level.add_entities([player, monster])
-#level = World(20,20)
-#for i in range(2):
-#  a = random.randint(0,20)
-#  b = random.randint(0,20)
-#  c = random.randint(0,20)
-#  if i == 0:
-#    level.makewall([a,b],[a,c])
-#  else:
-#    level.makewall([b,a],[c,a])
-
-level.draw()
+level = World(35,35)
+player = Entity(0,0,"P")
+level.add_entities([player])
+for i in range(2):
+  a = random.randint(0,33)
+  b = random.randint(0,33)
+  c = random.randint(0,33)
+  if i == 0:
+    level.makewall([a,b],[a,c])
+  else:
+    level.makewall([b,a],[c,a])
+while True:
+    player.move(input(">>> "),level.getwallatcoords())
+    level.draw()
