@@ -37,11 +37,13 @@ def colorprint(stringa):
   COL_DEFAULT = "\033[0m"
   BOLD_T = "\E[0;1m"
   if stringa == "[G]":
-    print("%s[G]%s" %(ACQUA,COL_DEFAULT),end = "")
+    print("%s[G]%s" %(BLUE,COL_DEFAULT),end = "")
   elif stringa == "[ ]":
     print("%s[ ]%s" %(GREEN,COL_DEFAULT),end = "")
   elif stringa == "[=]":
     print("%s[=]%s" %(YELLOW,COL_DEFAULT),end = "")
+  elif stringa == "[-]":
+    print("%s[-]%s" %(MAGENTA,COL_DEFAULT),end = "")
   elif stringa == "None":
     print()
 
