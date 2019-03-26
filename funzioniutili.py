@@ -36,14 +36,14 @@ def colorprint(stringa):
 
   COL_DEFAULT = "\033[0m"
   BOLD_T = "\E[0;1m"
-  if stringa == "[G]":
-    print("%s[G]%s" %(BLUE,COL_DEFAULT),end = "")
-  elif stringa == "[ ]":
-    print("%s[ ]%s" %(GREEN,COL_DEFAULT),end = "")
-  elif stringa == "[=]":
-    print("%s[=]%s" %(YELLOW,COL_DEFAULT),end = "")
-  elif stringa == "[-]":
-    print("%s[-]%s" %(MAGENTA,COL_DEFAULT),end = "")
+  if stringa == " G ":
+    print("%s G %s" %(BACQUA,COL_DEFAULT),end = "")
+  elif stringa == "   ":
+    print("%s   %s" %(BGREEN,COL_DEFAULT),end = "")
+  elif stringa == " = ":
+    print("%s = %s" %(BYELLOW,COL_DEFAULT),end = "")
+  elif stringa == " - ":
+    print("%s - %s" %(BMAGENTA,COL_DEFAULT),end = "")
   elif stringa == "None":
     print()
 

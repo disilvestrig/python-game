@@ -21,17 +21,17 @@ class World:
     out = readfile(self.mappa)
     y = 0
     x = 0
-    print (self.doors)
+
     for cell in out:
         for e in self.entities:
 
             if e.x == x and e.y == y:
-              colorprint("[G]")
+              colorprint(" G ")
               x += 1
               break
         else:
           if cell == "=":
-            colorprint("[=]")
+            colorprint(" = ")
             self.wallscoords.append([x,y])
             x += 1
           elif cell == "#":
@@ -39,13 +39,13 @@ class World:
             y += 1
             x = 0
           elif cell == "•":
-            colorprint("[ ]")            
+            colorprint("   ")            
             x += 1
           elif cell == "-":
             if [x,y] in self.doors:
-              colorprint("[-]")
+              colorprint(" - ")
             else:
-              colorprint("[ ]")
+              colorprint("   ")
             if self.count == 0:
               self.doors.append([x,y])
             x += 1
