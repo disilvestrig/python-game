@@ -44,6 +44,10 @@ def colorprint(stringa):
     print("%s = %s" %(BYELLOW,COL_DEFAULT),end = "")
   elif stringa == " - ":
     print("%s - %s" %(BMAGENTA,COL_DEFAULT),end = "")
+  elif stringa == " E ":
+    print("%s E %s" %(BRED,COL_DEFAULT),end = "")
+  elif stringa == " $ ":
+    print("%s $ %s" %(BBLUE,COL_DEFAULT),end = "")
   elif stringa == "None":
     print()
 

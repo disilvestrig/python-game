@@ -1,8 +1,13 @@
+import json
+from info import info
+lista = info()
+
 class Entity:
-  def __init__(self,x,y,graphic):
+  def __init__(self,x,y,graphic,inventory):
     self.x = x
     self.y = y
     self.graphic = graphic
+    self.inventory = [ ]
   def move(self,direction,wall,door):
     x = self.x
     y = self.y
@@ -14,8 +19,14 @@ class Entity:
       self.x -= 1
     elif direction.lower() == "d" and [x+1,y] not in wall and [x+1,y] not in door :
       self.x += 1
-  def info(self,name,description):
-    return {"name":name,"description":description}
+  def putininventory(self,obj):
+  	self.inventory.append(obj)
+  	return self.inventory
+  def getinventory(self):
+  	return self.inventory
+  def printinventory(self):
+  	for e in self.inventory:
+  		print(lista.entity[e.graphic]["nome"],":",lista.entity[e.graphic]["description"])
 
   def opendoor(self,door):
     ray = []

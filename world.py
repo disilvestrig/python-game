@@ -11,7 +11,7 @@ class World:
 
 
   def add_entities(self, entities):
-    self.entities += entities
+    self.entities = entities
   def getwallscoords(self):
     return self.wallscoords
   def getdoorscoords(self):
@@ -26,7 +26,7 @@ class World:
         for e in self.entities:
 
             if e.x == x and e.y == y:
-              colorprint(" G ")
+              colorprint(" "+e.graphic+" ")
               x += 1
               break
         else:
